@@ -1,12 +1,16 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
+#include <string.h>
 #include <stdbool.h>
 
 #define MAXARR 100000
 extern double f1(double x);
 extern double f2(double x);
 extern double f3(double x);
+extern double f11(double x);
+extern double f21(double x);
+extern double f31(double x);
 
 double root(double f(double), double g(double), double f1(double), double g1(double),
             double a, double b, double eps) {
@@ -72,6 +76,19 @@ double integral(double f(double), double a, double b, double eps) {
 }
 
 int main(int argc, char * argv[]) {
+    double eps1 = 0.000001;
+    double eps2 = 0.000001;
+    double x12, x13, x23;
+    x12 = root(f1, f2, f11, f21, 2, 4, eps1);
+    x13 = root(f1, f3, f11, f31, 0, 0.5, eps1);
+    x13 = root(f2, f3, f21, f31, 1, 1.5, eps1);
+    if (argc > 1) {
+        if (!strcmp("-help",argv[1])) {
 
+        }
+    }
+    else {
+
+    }
     return 0;
 }
