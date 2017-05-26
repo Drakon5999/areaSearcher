@@ -1,29 +1,29 @@
-
 GLOBAL _f1
 _f1: 
+finit
 fld qword[esp + 4]
 fldl2e
-fmulp
-fld st0
+fmulp ;x*lne
+fld st0 ; xlne xlne
 frndint
 fsub st1, st0
 fxch
 f2xm1
 fld1
 faddp
-fxch
-fld1
 fscale
-fmulp
 fld1
+fxch
+fdivp
 fld1
-fadd
-faddp
+fadd st1, st0
+fadd st1, st0
 faddp
 ret
 
 GLOBAL _f2
 _f2: 
+finit
 fld qword[esp + 4]
 fld1
 fld1 
@@ -32,12 +32,13 @@ fmulp
 fld1 
 fld1
 faddp
-fxch
+fchs
 faddp
 ret
 
 GLOBAL _f3
 _f3: 
+finit
 fld1
 fld qword[esp + 4]
 fdivp
@@ -45,27 +46,27 @@ ret
 
 GLOBAL _f11
 _f11: 
+finit
 fld qword[esp + 4]
 fldl2e
-fmulp
-fld st0
+fmulp ;xlne
+fld st0 ; xlne xlne
 frndint
 fsub st1, st0
 fxch
 f2xm1
 fld1
 faddp
-fxch
-fld1
 fscale
-fmulp
 fld1
+fxch
+fdivp
 fchs
-fmulp
 ret
 
 GLOBAL _f21
 _f21: 
+finit
 fld1
 fld1
 faddp
@@ -73,6 +74,7 @@ ret
 
 GLOBAL _f31
 _f31: 
+finit
 fld1
 fchs
 fld qword[esp + 4]
