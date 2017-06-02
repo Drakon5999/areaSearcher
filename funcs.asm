@@ -54,7 +54,7 @@ fld st0 ; xlne xlne
 frndint
 fsub st1, st0
 fxch
-f2xm1
+f2xm1 
 fld1
 faddp
 fscale
